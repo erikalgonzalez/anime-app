@@ -8,5 +8,9 @@ Rails.application.routes.draw do
   # Defines the root path route ("/")
   # root "posts#index"
 
+  # create new user(signup)
   post "/users" => "users#create"
+
+  # Login(create JSON web tokens)
+  post "/sessions" => "sessions#create"
 end
