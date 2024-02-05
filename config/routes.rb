@@ -13,4 +13,17 @@ Rails.application.routes.draw do
 
   # Login(create JSON web tokens)
   post "/sessions" => "sessions#create"
+
+  # Favorites 
+  get "/favorites" => "favorites#index"
+  post "/favorites" => "favorites#create"
+  get "/favorites/:id" => "favorites#show"
+  delete "/favorites/:id" => "favorites#destroy"
+
+  # Items
+  get "/items" => "items#index"
+  post "/items" => "items#create"
+  get "/items/:id" => "items#show"
+  patch "/items/:id" => "items#update"
+  delete "/items/:id" => "items#destroy"
 end
