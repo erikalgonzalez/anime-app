@@ -67,3 +67,7 @@ group :test do
 end
 
 gem 'jwt'
+
+gem 'httparty'
+
+gem 'rack-cors'

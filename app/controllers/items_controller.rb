@@ -1,4 +1,5 @@
 class ItemsController < ApplicationController
+  before_action :authenticate_admin, except: [:show, :index]
 
   def index
     @items = Item.all
@@ -6,12 +7,13 @@ class ItemsController < ApplicationController
   end
   
   def create
-    item = Item.new(item_params)
-    if item.save
-       render json: item, status: :created
-      else
-      render json: item.errors, status: :unprocessable_entity
-    end
+    @item = Item.create(
+      name: params[:name],
+      description: params[:description],
+      image_url: params[:image_url],
+      category: params[:category]
+    )
+    render :show
   end
   
   def show
